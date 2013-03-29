@@ -142,9 +142,11 @@ class YSolrQueryResponseObject
 		
 		$this->_response = $solrObject;	
 		
-		foreach($this->_response->docs as $document)
-		{
-		   $this->docs[] = new YSolrObject($document);
+		if ($this->_response->docs !== false) {
+			foreach($this->_response->docs as $document)
+			{
+			   $this->docs[] = new YSolrObject($document);
+			}
 		}
 	}
 	
